@@ -1,5 +1,6 @@
 package com.namseox.st146_docxreader.ui.main.home
 
+import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ import com.namseox.st146_docxreader.utils.onSingleClick
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import androidx.core.graphics.toColorInt
 
 class HomeFragment : AbsBaseFragment<FragmentHomeBinding, MainActivity>() {
     val mViewModel: MainViewModel by activityViewModels()
@@ -71,27 +73,28 @@ class HomeFragment : AbsBaseFragment<FragmentHomeBinding, MainActivity>() {
     lateinit var bindingPopup: PopupSortBinding
     lateinit var popup: PopupWindow
     fun changeBGPopupSort(i: Int) {
-        bindingPopup.llName.setBackgroundColor("#ffffff".toInt())
-        bindingPopup.llSize.setBackgroundColor("#ffffff".toInt())
-        bindingPopup.llDate.setBackgroundColor("#ffffff".toInt())
-        bindingPopup.llType.setBackgroundColor("#ffffff".toInt())
+        bindingPopup.llName.setBackgroundColor("#ffffff".toColorInt())
+        bindingPopup.llSize.setBackgroundColor("#ffffff".toColorInt())
+        bindingPopup.llDate.setBackgroundColor("#ffffff".toColorInt())
+        bindingPopup.llType.setBackgroundColor("#ffffff".toColorInt())
         when (i) {
             0 -> {
-                bindingPopup.llName.setBackgroundColor("#F4F7FF".toInt())
+                bindingPopup.llName.setBackgroundColor("#F4F7FF".toColorInt())
             }
 
             1 -> {
-                bindingPopup.llSize.setBackgroundColor("#F4F7FF".toInt())
+                bindingPopup.llSize.setBackgroundColor("#F4F7FF".toColorInt())
             }
 
             2 -> {
-                bindingPopup.llDate.setBackgroundColor("#F4F7FF".toInt())
+                bindingPopup.llDate.setBackgroundColor("#F4F7FF".toColorInt())
             }
 
             3 -> {
-                bindingPopup.llType.setBackgroundColor("#F4F7FF".toInt())
+                bindingPopup.llType.setBackgroundColor("#F4F7FF".toColorInt())
             }
         }
+        popup.dismiss()
     }
     override fun setClick() {
         bindingPopup = PopupSortBinding.inflate(LayoutInflater.from(requireContext()))
