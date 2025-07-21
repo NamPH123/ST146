@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
                 android:gravity="center"
+                android:background="#F4F7FF"
                 android:orientation="horizontal"
                 android:paddingVertical="4dp">
 

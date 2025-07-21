@@ -103,7 +103,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imv_sort"
+                android:id="@+id/imvSort"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginTop="11dp"
@@ -119,7 +119,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imv_sort"
+                app:layout_constraintTop_toBottomOf="@id/imvSort"
                 tools:itemCount="10"
                 tools:listitem="@layout/item_all_files" />
         </androidx.constraintlayout.widget.ConstraintLayout>
