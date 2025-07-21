@@ -1,0 +1,118 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.parcelize'
+//    id 'com.google.gms.google-services'
+//    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    namespace 'com.namseox.st146_docxreader'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.namseox.st146_docxreader"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+        def formattedDate = new Date().format('MM.dd.yyyy')
+        archivesBaseName = "st148_countryhuman ${versionName}_${formattedDate}"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug // Chỉ nên dùng debug khi chưa có release key
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    dataBinding {
+        enabled true
+    }
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            // This property is set to true by default.
+            enableSplit = true
+        }
+        abi {
+            // This property is set to true by default.
+            enableSplit = true
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["libs"]
+
+        }
+    }
+}
+
+dependencies {
+
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.activity
+    implementation libs.androidx.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+
+
+    implementation "androidx.viewpager2:viewpager2:1.1.0"
+    //dagger hilt
+    implementation 'com.google.dagger:hilt-android:2.56.2'
+    kapt 'com.google.dagger:hilt-compiler:2.56.2'
+//    //room
+    implementation("androidx.room:room-runtime:2.7.2")
+    kapt("androidx.room:room-compiler:2.7.2")
+    annotationProcessor("androidx.room:room-compiler:2.7.2")
+    implementation "com.airbnb.android:lottie:6.3.0"
+    implementation 'androidx.work:work-runtime-ktx:2.10.2'
+    implementation 'com.google.android.play:review:2.0.2'
+    implementation 'com.google.android.play:review-ktx:2.0.2'
+    implementation 'com.github.ome450901:SimpleRatingBar:1.5.1'
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.1"
+    kapt glide_annotation
+    implementation hilt_lib
+    implementation okhttp_lib
+    implementation glide_lib
+    implementation coroutine_lib
+    implementation nav_component_lib
+
+
+
+    implementation files('libs/lib_office.jar')
+    implementation libs.rxandroid
+    implementation libs.rxjava
+
+    implementation(libs.lifecycle.process)
+    implementation(libs.user.messaging.platform)
+
+    //
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+    implementation platform('com.google.firebase:firebase-bom:31.1.1')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    implementation 'com.google.firebase:firebase-config:21.0.1'
+}

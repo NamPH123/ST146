@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.main.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_home">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvNavi"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/imv_navi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/docx_reader"
+                android:textColor="@color/_121212"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@id/imvNavi"
+                app:layout_constraintStart_toEndOf="@id/imvNavi"
+                app:layout_constraintTop_toTopOf="@id/imvNavi" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvSearch"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/imv_search"
+                app:layout_constraintBottom_toBottomOf="@id/imvNavi"
+                app:layout_constraintEnd_toStartOf="@id/imvPdfToConvert"
+                app:layout_constraintTop_toTopOf="@id/imvNavi" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imvPdfToConvert"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/imv_to_convert"
+                app:layout_constraintBottom_toBottomOf="@id/imvNavi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imvNavi" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/flContainer"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/nav_main"
+                app:layout_constraintBottom_toTopOf="@id/bottomNav"
+                app:layout_constraintTop_toBottomOf="@id/imvNavi"
+                android:layout_marginTop="10dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#DBDBDB"
+                app:layout_constraintBottom_toTopOf="@id/bottomNav"/>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:labelVisibilityMode="labeled"
+                app:menu="@menu/menu_bottom_navigation"
+                android:background="#FFFFFF"
+                app:itemIconSize="22sp"
+                app:itemRippleColor="@color/transparent"
+                app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+                app:itemTextColor="@color/color_bottom_nav_icon"
+                app:itemIconTint="@color/color_bottom_nav_icon"
+                android:theme="@style/BottomNavigationViewTextStyle" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            app:headerLayout="@layout/nav_header"
+            app:itemHorizontalPadding="4dp" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

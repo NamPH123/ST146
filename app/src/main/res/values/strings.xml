@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">Docx Reader</string>
+
+    <string name="sodk_editor_new_intent_title">Edit session already in progress</string>
+    <string name="sodk_editor_new_intent_body">Opening a new document will lose changes made to another document</string>
+    <string name="sodk_editor_new_intent_yes_button">Open a new document</string>
+    <string name="sodk_editor_new_intent_no_button">Continue with previous document</string>
+    <string name="this_action_may_contain_advertising">This action may contain advertising</string>
+    <string name="unknown">Unknown</string>
+    <string name="permission">Permission</string>
+    <string name="tv_yes">Yes</string>
+    <string name="tv_cancel">Cancel</string>
+    <string name="content_dialog_notification">We need push notification permission to be able to use the app\'s functions.</string>
+    <string name="reques_storage">We need exclusive write permission to use the app\'s functions.</string>
+    <string name="one_start_title">Oh, no!</string>
+    <string name="four_start_title">We love you too!</string>
+    <string name="zero_star_title">Do you like the app?</string>
+    <string name="one_start">Please give us some feedback</string>
+    <string name="four_start">Thanks for your feedback</string>
+    <string name="zero_star">Let us know your experience</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="rate">Rate</string>
+    <string name="exit">Exit</string>
+    <string name="rate_us_0">You have not rated it yet!</string>
+    <string name="language">Language</string>
+    <string name="next">Next</string>
+    <string name="storage">Storage</string>
+    <string name="notifications">Notifications</string>
+    <string name="continue2">Continue</string>
+    <string name="you_have_not_selected_anything_yet">You have not selected any item yet</string>
+    <string name="intro1">All-in-one reader for PDF, WORD, EXCEL,...</string>
+    <string name="intro2">Text Scanner OCR</string>
+    <string name="intro3">Edit PDF File</string>
+    <string name="allow">Allow</string>
+    <string name="request_permission_to_use_notifications_to_notify_you">the following permissions to use the app\'s functions</string>
+    <string name="docx_reader">Docx Reader</string>
+    <string name="output_path">Output Path</string>
+    <string name="share_app">Share App</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="home">Home</string>
+    <string name="recent">Recent</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="saved">Saved</string>
+    <string name="text_scanner_ocr">Text Scanner OCR</string>
+    <string name="use_smart_ocr_feature_to_scan_text_from_camera">Use smart OCR feature to scan text from camera</string>
+    <string name="start">Start</string>
+    <string name="all_files">All Files</string>
+    <string name="recent_files">Recent Files</string>
+    <string name="bookmark_files">Bookmark Files</string>
+    <string name="saved_files">Saved Files</string>
+    <string name="from_camera">From Camera</string>
+    <string name="from_gallery">From Gallery</string>
+    <string name="blank_document">Blank Document</string>
+    <string name="we_need_you_to_provide_storage_management_permission_to_be_able_to_use_the_app_functions">We need you to provide storage management permission to be able to use the app\'s functions.</string>
+    <string name="files">files</string>
+    <string name="rename">Rename</string>
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+</resources>

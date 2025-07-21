@@ -1,0 +1,40 @@
+pluginManagement {
+    repositories {
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://android-sdk.is.com/'
+        }
+        maven {
+            url 'https://artifact.bytedance.com/repository/pangle/'
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://android-sdk.is.com/'
+        }
+        maven {
+            url 'https://artifact.bytedance.com/repository/pangle/'
+        }
+    }
+}
+
+rootProject.name = "ST146_DocxReader"
+include ':app'
