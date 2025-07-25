@@ -17,5 +17,6 @@ object Const {
     const val _PPT = "Ppt"
     const val _TXT = "txt"
     const val _HTML = "html"
-    const val TAG = "LOG:namseox"
+    const val _TYPE = "ajgejkgh"
+    const val TAGLOG = "LOG:namseox"
 }

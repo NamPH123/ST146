@@ -1,10 +1,11 @@
-package com.namseox.st146_docxreader.ui.main
+package com.namseox.st146_docxreader.ui
 
 import android.annotation.SuppressLint
 import android.graphics.Rect
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.view.ViewGroup
 import android.widget.PopupWindow
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -14,18 +15,14 @@ import com.namseox.st146_docxreader.R
 import com.namseox.st146_docxreader.databinding.ItemAllFilesBinding
 import com.namseox.st146_docxreader.databinding.PopupAllFileBinding
 import com.namseox.st146_docxreader.model.FolderModel
-import com.namseox.st146_docxreader.utils.Const._DOC
-import com.namseox.st146_docxreader.utils.Const._EXCEL
-import com.namseox.st146_docxreader.utils.Const._PDF
-import com.namseox.st146_docxreader.utils.Const._PPT
-import com.namseox.st146_docxreader.utils.Const._TXT
+import com.namseox.st146_docxreader.utils.Const
+import com.namseox.st146_docxreader.utils.Const.TAGLOG
 import com.namseox.st146_docxreader.utils.dpToPx
+import com.namseox.st146_docxreader.utils.formatSize
 import com.namseox.st146_docxreader.utils.formatter
-import com.namseox.st146_docxreader.utils.getSize
 import com.namseox.st146_docxreader.utils.onSingleClick
 import java.io.File
 import java.util.Date
-
 
 class AllFilesAdapter :
     AbsBaseAdapter<FolderModel, ItemAllFilesBinding>(R.layout.item_all_files, DiffAllFile()) {
@@ -38,39 +35,45 @@ class AllFilesAdapter :
         data: FolderModel,
         holder: RecyclerView.ViewHolder
     ) {
-        Glide.with(binding.root).load(
-            when (data.type) {
-                _DOC -> {
-                    R.drawable.imv_doc
-                }
-
-                _PDF -> {
-                    R.drawable.imv_pdf
-                }
-
-                _EXCEL -> {
-                    R.drawable.imv_excel
-                }
-
-                _PPT -> {
-                    R.drawable.imv_ppt
-                }
-
-                _TXT -> {
-                    R.drawable.imv_txt
-                }
-
-                else -> {
-                    R.drawable.imv_html
-                }
+        if(data.checkBookMark) binding.imvBookmark.setImageResource(R.drawable.ic_bookmark_true) else binding.imvBookmark.setImageResource(
+            R.drawable.ic_bookmark)
+        binding.imv.setImageResource(  when (data.type) {
+            Const._DOC -> {
+                R.drawable.imv_doc_reader
             }
-        ).into(binding.imv)
+
+            Const._PDF -> {
+                R.drawable.imv_pdf_reader
+            }
+
+            Const._EXCEL -> {
+                R.drawable.imv_excel_reader
+            }
+
+            Const._PPT -> {
+                R.drawable.imv_ppt_reader
+            }
+
+            Const._TXT -> {
+                R.drawable.imv_txt_reader
+            }
+
+            else -> {
+                R.drawable.imv_html_reader
+            }
+        })
         var file = File(data.uri)
         binding.tvNameFile.text = file.name
-        binding.tvSize.text =formatter.format(Date(file.lastModified())).toString() + " | " + getSize(file)
+        binding.tvSize.text =
+            formatter.format(Date(file.lastModified())).toString() + " | " + formatSize(data.size)
 
         val bindingPopup = PopupAllFileBinding.inflate(LayoutInflater.from(binding.root.context))
-        val popup = PopupWindow(bindingPopup.root, dpToPx(162f,binding.root.context).toInt(), WRAP_CONTENT, true)
+        val popup = PopupWindow(
+            bindingPopup.root,
+            dpToPx(162f, binding.root.context).toInt(),
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            true
+        )
         binding.imvDot.setOnClickListener {
             val location = IntArray(2)
             it.getLocationOnScreen(location)

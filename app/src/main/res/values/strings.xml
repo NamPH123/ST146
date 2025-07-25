@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Docx Reader</string>
+    <string name="app_name" translatable="false">DocxReader</string>
 
     <string name="sodk_editor_new_intent_title">Edit session already in progress</string>
     <string name="sodk_editor_new_intent_body">Opening a new document will lose changes made to another document</string>
@@ -61,4 +61,18 @@
     <string name="size">Size</string>
     <string name="date">Date</string>
     <string name="type">Type</string>
+    <string name="change_the_filename_to_your_desired_syntax">Change the filename to your desired syntax.</string>
+    <string name="enter_name">Enter name</string>
+    <string name="ok">OK</string>
+    <string name="name_cannot_be_left_blank">Name cannot be left blank</string>
+    <string name="same_as_old_name">Same as old name</string>
+    <string name="excel_reader">Excel Reader</string>
+    <string name="pdf_reader">PDF Reader</string>
+    <string name="ppt_reader">PPT Reader</string>
+    <string name="txt_reader">TXT Reader</string>
+    <string name="html_reader">HTML Reader</string>
+    <string name="enter_file_name_here">Enter file name here</string>
+    <string name="suggest">Suggest</string>
+    <string name="no_files_match_your_search_query">No files match your search query.</string>
+
 </resources>

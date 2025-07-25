@@ -1,6 +1,7 @@
 package com.namseox.st146_docxreader.module
 
 import android.content.Context
+import com.namseox.st146_docxreader.data.repository.FolderRepository
 import com.namseox.st146_docxreader.utils.SharedPreferenceUtils
 import dagger.Module
 import dagger.Provides
@@ -16,5 +17,11 @@ class ApplicationModule {
     @Provides
     fun providerSharedPreference(@ApplicationContext appContext: Context): SharedPreferenceUtils {
         return SharedPreferenceUtils.getInstance(appContext)
+    }
+
+    @Singleton
+    @Provides
+    fun providerFolderRepository(@ApplicationContext appContext: Context): FolderRepository {
+        return FolderRepository(appContext)
     }
 }

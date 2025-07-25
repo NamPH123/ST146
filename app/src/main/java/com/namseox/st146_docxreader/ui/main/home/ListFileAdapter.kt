@@ -7,10 +7,11 @@ import com.countryhuman.countryball.maker.base.AbsBaseDiffCallBack
 import com.namseox.st146_docxreader.R
 import com.namseox.st146_docxreader.databinding.ItemHomeFileBinding
 import com.namseox.st146_docxreader.model.ListFileModel
-import com.namseox.st146_docxreader.utils.dataListFile
+import com.namseox.st146_docxreader.utils.DataHelper.dataListFile
+import com.namseox.st146_docxreader.utils.onSingleClick
 
 class ListFileAdapter : AbsBaseAdapter<ListFileModel, ItemHomeFileBinding>(R.layout.item_home_file, DiffListFile()) {
-
+var onClick: ((String) -> Unit)? = null
     @SuppressLint("SetTextI18n")
     override fun bind(
         binding: ItemHomeFileBinding,
@@ -20,6 +21,9 @@ class ListFileAdapter : AbsBaseAdapter<ListFileModel, ItemHomeFileBinding>(R.lay
     ) {
         binding.imv.setImageResource(dataListFile[position].imv)
         binding.tv.text = "${dataListFile[position].name} ${binding.root.context.getString(R.string.files)} (${dataListFile[position].arrListFile.size})"
+        binding.root.onSingleClick {
+            onClick?.invoke(dataListFile[position].type)
+        }
     }
 
     class DiffListFile : AbsBaseDiffCallBack<ListFileModel>() {

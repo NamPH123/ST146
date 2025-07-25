@@ -1530,17 +1530,6 @@ fun isInternetReachable(): Boolean {
     }
 }
 val formatter = SimpleDateFormat("MM.dd.yy", Locale.getDefault())
-var dataFloderCache = arrayListOf<FolderModel>()
-lateinit var folder: FolderModel
-var lastDotIndex = 0
-var dataListFile = arrayListOf<ListFileModel>(
-    ListFileModel("Doc", arrayListOf(), _DOC,R.drawable.imv_doc),
-    ListFileModel("PDF", arrayListOf(), _PDF,R.drawable.imv_pdf),
-    ListFileModel("Excel", arrayListOf(), _EXCEL,R.drawable.imv_excel),
-    ListFileModel("PPT", arrayListOf(), _PPT,R.drawable.imv_ppt),
-    ListFileModel("TXT", arrayListOf(), _TXT,R.drawable.imv_txt),
-    ListFileModel("HTML", arrayListOf(), _HTML,R.drawable.imv_html),
-)
 
 fun getSize(file: File): Long {
     var a = 0L
@@ -1553,23 +1542,22 @@ fun getSize(file: File): Long {
 }
 
 fun getFolderSize(folder: File): Long {
-    var size: Long = 0
-
-    if (folder.isDirectory) {
-        val files = folder.listFiles()
-        if (files != null) {
-            for (file in files) {
-                size += if (file.isDirectory) {
-                    getFolderSize(file)
-                } else {
-                    file.length()
-                }
-            }
-        }
-    } else {
-        size = folder.length()
+    var totalSize = 0L
+    folder.listFiles()?.forEach {
+        totalSize += if (it.isFile) it.length() else getFolderSize(it)
     }
+    return totalSize
+}
+fun formatSize(bytes: Long): String {
+    val kb = 1024.0
+    val mb = kb * 1024
+    val gb = mb * 1024
 
-    return size
+    return when {
+        bytes >= gb -> String.format("%.2f GB", bytes / gb)
+        bytes >= mb -> String.format("%.2f MB", bytes / mb)
+        bytes >= kb -> String.format("%.2f KB", bytes / kb)
+        else -> "$bytes B"
+    }
 }
 
